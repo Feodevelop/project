@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마을제보 - 행복한 마을</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .logo {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a, .nav-right a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .nav-left a:hover, .nav-right a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 680px;
+            width: 100%;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group select, .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group input[type="file"] {
+            padding: 0;
+        }
+
+        .form-group input[type="file"]::file-selector-button {
+            background-color: #5b805d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .form-group input[type="file"]::file-selector-button:hover {
+            background-color: #4a6d49;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: #5b805d;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #4a6d49;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-left">
+                <a href="#">이벤트</a>
+                <a href="#">마을제보</a>
+                <a href="#">마을소개</a>
+            </div>
+            <div class="logo">
+                행복한 마을
+            </div>
+            <div class="nav-right">
+                <a href="#">마이페이지</a>
+                <a href="#">로그인</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>게시글 작성</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="category">카테고리</label>
+                <select id="category" name="category" required>
+                    <option value="마을제보">마을제보</option>
+                </select>
+                <select id="category" name="category" required>
+                    <option value="우리마을">우리 마을 어때요?</option>
+                    <option value="맛집제보">여기에 이런 맛집이?!</option>
+                    <option value="산책로제보">산책로 제보</option>
+                    <option value="데이트명소">설레는 데이트 명소!</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title" placeholder="게시글 제목" required />
+            </div>
+
+            <div class="form-group">
+                <label for="content">본문</label>
+                <textarea id="content" name="content" placeholder="게시글 본문" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">파일 첨부</label>
+                <input type="file" id="file" name="file" />
+            </div>
+
+            <button type="submit" class="submit-btn">게시글 작성</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#">마을 소개</a> |
+            <a href="#">연락처</a> |
+            <a href="#">이용약관</a>
+        </div>
+    </footer>
+</body>
+</html>

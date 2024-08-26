@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - 행복한 마을</title>
+    <style>
+        body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left a, .nav-right a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: #007bff;
+}
+
+.container {
+    display: block;
+    max-width: 680px;
+    width: 80%;
+    margin: 100px auto; /* 상단 여백을 줄였습니다 */
+}
+
+h1 {
+    color: #5b805d;
+    font-size: 48px;
+    letter-spacing: -3px;
+    text-align: center;
+    margin: 50px 0 40px 0; /* 상단 여백을 줄였습니다 */
+    transition: .2s linear;
+}
+
+.links {
+    list-style-type: none;
+}
+
+.links li {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    transition: .2s linear;
+}
+
+.links li:nth-child(2) {
+    opacity: .6;
+}
+
+.links li:nth-child(2):hover {
+    opacity: 1;
+}
+
+.links li:nth-child(3) {
+    opacity: .6;
+    float: right;
+}
+
+.links li:nth-child(3):hover {
+    opacity: 1;
+}
+
+.links a {
+    text-decoration: none;
+    color: #0f132a;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+}
+
+form {
+    width: 100%;
+    max-width: 680px;
+    margin: 40px auto 10px;
+}
+
+.input__block {
+    margin: 20px auto;
+    display: block;
+    position: relative;
+}
+
+.input__block.first-input__block::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50px;
+    display: block;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgba(#0f132a, .1);
+    transition: .2s linear;
+}
+
+.input__block.signup-input__block::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 150px;
+    display: block;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgba(#0f132a, .1);
+    transition: .2s linear;
+}
+
+input {
+    display: block;
+    width: 90%;
+    max-width: 680px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: none;
+    background: rgba(#0f132a, .1);
+    color: rgba(#0f132a, .3);
+    padding: 0 0 0 15px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input:focus, input:active {
+    outline: none;
+    border: none;
+    color: rgba(#0f132a, 1);
+}
+
+input.repeat__password {
+    opacity: 0;
+    display: none;
+    transition: .2s linear;
+}
+
+.signin__btn {
+    background: #5b805d;
+    color: white;
+    display: block;
+    width: 92.5%;
+    max-width: 680px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 15px 30px rgba(#e91e63, .36);
+    transition: .2s linear;
+}
+
+.signin__btn:hover {
+    box-shadow: 0 0 0 rgba(#e91e63, .0);
+}
+
+.separator {
+    display: block;
+    margin: 30px auto 10px;
+    text-align: center;
+    height: 40px;
+    position: relative;
+    background: transparent;
+    color: rgba(#0f132a, .4);
+    font-size: 13px;
+    width: 90%;
+    max-width: 680px;
+}
+
+.separator::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background: rgba(#0f132a, .2);
+    height: 1px;
+    width: 45%;
+}
+
+.separator::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 0;
+    background: rgba(#0f132a, .2);
+    height: 1px;
+    width: 45%;
+}
+
+.google__btn,
+.github__btn {
+    display: block;
+    width: 90%;
+    max-width: 680px;
+    margin: 20px auto;
+    height: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
+    border: none;
+    line-height: 40px;
+}
+
+.google__btn {
+    background: #5b90f0;
+    color: white;
+    box-shadow: 0 15px 30px rgba(#5b90f0, .36);
+    transition: .2s linear;
+}
+
+.google__btn .fa {
+    font-size: 20px;
+    padding: 0 5px 0 0;
+}
+
+.google__btn:hover {
+    box-shadow: 0 0 0 rgba(#5b90f0, .0);
+}
+
+.github__btn {
+    background: #25282d;
+    color: white;
+    box-shadow: 0 15px 30px rgba(#25282d, .36);
+    transition: .2s linear;
+}
+
+.github__btn .fa {
+    font-size: 20px;
+    padding: 0 5px 0 0;
+}
+
+.github__btn:hover {
+    box-shadow: 0 0 0 rgba(#25282d, .0);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    margin-top: auto; /* 푸터를 페이지 하단으로 고정합니다 */
+}
+
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-left">
+                <a href="#">이벤트</a>
+                <a href="#">마을제보</a>
+                <a href="#">마을소개</a>
+            </div>
+            <div class="logo">
+                행복한 마을
+            </div>
+            <div class="nav-right">
+                <a href="#">마이페이지</a>
+                <a href="#">로그인</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>SIGN IN</h1>
+        <!-- Links -->
+        <ul class="links">
+            <li>
+                <a href="#" id="signup">회원가입</a>
+            </li>
+        </ul>
+
+        <!-- Form -->
+        <form action="" method="post">
+            <!-- email input -->
+            <div class="first-input input__block first-input__block">
+                <input type="email" placeholder="아이디" class="input" id="email" />
+            </div>
+            <!-- password input -->
+            <div class="input__block">
+                <input type="password" placeholder="비밀번호" class="input" id="password" />
+            </div>
+            <!-- repeat password input -->
+            <div class="input__block">
+                <input type="password" placeholder="Repeat password" class="input repeat__password" id="repeat__password" />
+            </div>
+            <!-- sign in button -->
+            <button class="signin__btn">
+                로그인
+            </button>
+        </form>
+        <!-- separator -->
+        <div class="separator">
+            <p>또는</p>
+        </div>
+        <!-- google button -->
+        <button class="google__btn">
+            <i class="fa fa-google"></i>
+            Google로 로그인
+        </button>
+        <!-- github button -->
+        <button class="github__btn">
+            <i class="fa fa-github"></i>
+            GitHub로 로그인
+        </button>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <a href="#">마을 소개</a> | 
+            <a href="#">연락처</a> | 
+            <a href="#">이용약관</a>
+        </div>
+    </footer>
+</body>
+</html>

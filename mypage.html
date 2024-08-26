@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지 - 행복한 마을</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .logo {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a, .nav-right a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .nav-left a:hover, .nav-right a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 680px;
+            width: 100%;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-info h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .profile-info .level {
+            color: #5b805d;
+            font-weight: bold;
+        }
+
+        .posts {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .posts h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .posts ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .posts li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .posts a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .posts a:hover {
+            text-decoration: underline;
+        }
+        .reviews {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .reviews h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .reviews ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .reviews li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .reviews a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .reviews a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: #5b805d;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: #4a6d49;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-left">
+                <a href="#">이벤트</a>
+                <a href="#">마을제보</a>
+                <a href="#">마을소개</a>
+            </div>
+            <div class="logo">
+                행복한 마을
+            </div>
+            <div class="nav-right">
+                <a href="#">마이페이지</a>
+                <a href="#">로그인</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-info">
+            <h1>이재형</h1>
+            <p class="level">레벨: 1</p>
+            <a href="#" class="button">정보수정</a>
+        </div>
+
+        <div class="posts">
+            <h2>작성한 글</h2>
+            <ul>
+                <li><a href="#">게시글 제목 1</a></li>
+                <li><a href="#">게시글 제목 2</a></li>
+                <li><a href="#">게시글 제목 3</a></li>
+                <!-- 더 많은 게시글 추가 가능 -->
+            </ul>
+        </div>
+        <div class="reviews">
+            <h2>작성한 리뷰</h2>
+            <ul>
+                <li><a href="#">리뷰..........1</a></li>
+                <li><a href="#">리뷰..........2</a></li>
+                <li><a href="#">리뷰..........3</a></li>
+                <!-- 더 많은 게시글 추가 가능 -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#">마을 소개</a> |
+            <a href="#">연락처</a> |
+            <a href="#">이용약관</a>
+        </div>
+    </footer>
+</body>
+</html>
