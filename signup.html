@@ -62,145 +62,61 @@ header {
     color: #007bff;
 }
 
-.container {
-    display: block;
-    max-width: 680px;
-    width: 80%;
-    margin: 100px auto; /* 상단 여백을 줄였습니다 */
+table {
+    width: 280px;
+    height: 550px;
+    margin: auto;      
 }
-
-h1 {
-    color: #5b805d;
-    font-size: 48px;
-    letter-spacing: -3px;
-    text-align: center;
-    margin: 50px 0 40px 0; /* 상단 여백을 줄였습니다 */
-    transition: .2s linear;
-}
-
-.links {
-    list-style-type: none;
-}
-
-.links li {
-    display: inline-block;
-    margin: 0 20px 0 0;
-    transition: .2s linear;
-}
-
-.links li:nth-child(2) {
-    opacity: .6;
-}
-
-.links li:nth-child(2):hover {
-    opacity: 1;
-}
-
-.links li:nth-child(3) {
-    opacity: .6;
-    float: right;
-}
-
-.links li:nth-child(3):hover {
-    opacity: 1;
-}
-
-.links a {
-    text-decoration: none;
-    color: #0f132a;
-    font-weight: bolder;
-    text-align: center;
-    cursor: pointer;
-}
-
-form {
-    width: 100%;
-    max-width: 680px;
-    margin: 40px auto 10px;
-}
-
-.input__block {
-    margin: 20px auto;
-    display: block;
-    position: relative;
-}
-
-.input__block.first-input__block::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 50px;
-    display: block;
-    width: 0;
-    height: 0;
-    background: transparent;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid rgba(#0f132a, .1);
-    transition: .2s linear;
-}
-
-.input__block.signup-input__block::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 150px;
-    display: block;
-    width: 0;
-    height: 0;
-    background: transparent;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid rgba(#0f132a, .1);
-    transition: .2s linear;
-}
-
-input {
-    display: block;
-    width: 90%;
-    max-width: 680px;
-    height: 50px;
-    margin: 0 auto;
-    border-radius: 8px;
-    border: none;
-    background: rgba(#0f132a, .1);
-    color: rgba(#0f132a, .3);
-    padding: 0 0 0 15px;
-    font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-input:focus, input:active {
+.email {
+    width: 127px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-color: lightgray;
+    border-radius: 15px;
     outline: none;
-    border: none;
-    color: rgba(#0f132a, 1);
+    padding-left: 10px;
+    background-color: rgb(233,233,233);
 }
-
-input.repeat__password {
-    opacity: 0;
-    display: none;
-    transition: .2s linear;
+.text {
+    width: 250px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233,233,233);
 }
-
-.signin__btn {
-    background: #5b805d;
-    color: white;
-    display: block;
-    width: 92.5%;
-    max-width: 680px;
-    height: 50px;
-    border-radius: 8px;
-    margin: 0 auto;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 15px 30px rgba(#e91e63, .36);
-    transition: .2s linear;
+select {
+    width: 100px;
+    height: 32px;
+    font-size: 15px;
+    border: 1;
+    border-color: lightgray;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
 }
-
-.signin__btn:hover {
-    box-shadow: 0 0 0 rgba(#e91e63, .0);
+.btn {
+    width: 262px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(164, 199, 255);
+}
+.btn:active {
+    width: 262px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(61, 135, 255);
 }
 
 .separator {
@@ -329,46 +245,37 @@ footer a:hover {
             </div>
         </div>
     </header>
-
-    <div class="container">
-        <h1>SIGN IN</h1>
-        <!-- Links -->
-        <ul class="links">
-            <li>
-                <a href="#" id="signup">회원가입</a>
-            </li>
-        </ul>
-
-        <!-- Form -->
-        <form action="" method="post">
-            <!-- email input -->
-            <div class="first-input input__block first-input__block">
-                <input type="email" placeholder="아이디" class="input" id="email" />
-            </div>
-            <!-- password input -->
-            <div class="input__block">
-                <input type="password" placeholder="비밀번호" class="input" id="password" />
-            </div>
-            <!-- sign in button -->
-            <button class="signin__btn">
-                로그인
-            </button>
-        </form>
-        <!-- separator -->
-        <div class="separator">
-            <p>또는</p>
-        </div>
-        <!-- google button -->
-        <button class="google__btn">
-            <i class="fa fa-google"></i>
-            Google로 로그인
-        </button>
-        <!-- github button -->
-        <button class="github__btn">
-            <i class="fa fa-github"></i>
-            GitHub로 로그인
-        </button>
-    </div>
+    <form action="#">
+        <table>
+        <tr>
+            <td><h2>회원가입</h2></td>
+        </tr>
+        <tr><td>아이디</td></tr>
+        <tr><td><input type="text" class="text"></td></tr>
+        <tr><td>비밀번호</td></tr>
+        <tr><td><input type="password" class="text"></td></tr>
+        <tr><td>비밀번호 확인</td></tr>
+        <tr><td><input type="password" class="text"></td></tr>
+        <tr><td>이름</td></tr>
+        <tr><td><input type="text" class="text"></td></tr>
+        <tr><td>전화번호</td></tr>
+        <tr><td><input type="text" class="text"></td></tr>
+        <tr><td>생년월일</td></tr>
+        <tr><td><input type="date" class="text"></td></tr>
+        <tr><td>이메일</td></tr>
+        <tr>
+            <td><input type="text" class="email"> @ 
+                <select>
+                    <option>naver.com</option>
+                    <option>gmail.com</option>
+                    <option>daum.net</option>
+                    <option>nate.com</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td><input type="submit" value="가입하기" class="btn" onclick="alert('가입 성공!')"></td></tr>
+        </table>
+    </form>
     <footer>
         <div class="footer-content">
             <a href="#">마을 소개</a> | 
