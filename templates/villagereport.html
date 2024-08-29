@@ -1,0 +1,36 @@
+
+    <div class="container">
+        <h1>게시글 작성</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="category">카테고리</label>
+                <select id="category" name="category" required>
+                    <option value="마을제보">마을제보</option>
+                </select>
+                <select id="category" name="category" required>
+                    <option value="우리마을">우리 마을 어때요?</option>
+                    <option value="맛집제보">여기에 이런 맛집이?!</option>
+                    <option value="산책로제보">산책로 제보</option>
+                    <option value="데이트명소">설레는 데이트 명소!</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title" placeholder="게시글 제목" required />
+            </div>
+
+            <div class="form-group">
+                <label for="content">본문</label>
+                <textarea id="content" name="content" placeholder="게시글 본문" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">파일 첨부</label>
+                <input type="file" id="file" name="file" />
+            </div>
+
+            <button type="submit" class="submit-btn">게시글 작성</button>
+        </form>
+    </div>
+

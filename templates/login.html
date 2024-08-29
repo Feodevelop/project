@@ -1,0 +1,40 @@
+
+    <div class="container">
+        <h1>SIGN IN</h1>
+        <!-- Links -->
+        <ul class="links">
+            <li>
+                <a href="#" id="signup">회원가입</a>
+            </li>
+        </ul>
+
+        <!-- Form -->
+        <form action="{% url 'users:index' %}" method="POST">
+            <!-- UserID input -->
+            <div class="first-input input__block first-input__block">
+                <input type="email" placeholder="아이디" class="input" id="userID" />
+            </div>
+            <!-- password input -->
+            <div class="input__block">
+                <input type="password" placeholder="비밀번호" class="input" id="password" />
+            </div>
+            <!-- sign in button -->
+            <button class="signin__btn">
+                로그인
+            </button>
+        </form>
+        <!-- separator -->
+        <div class="separator">
+            <p>또는</p>
+        </div>
+        <!-- google button -->
+        <button class="google__btn">
+            <i class="fa fa-google"></i>
+            Google로 로그인
+        </button>
+        <!-- github button -->
+        <button class="github__btn">
+            <i class="fa fa-github"></i>
+            GitHub로 로그인
+        </button>
+    </div>
