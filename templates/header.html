@@ -2,15 +2,15 @@
     <div class="header-content">
         <div class="nav-left">
             <a href="#">이벤트</a>
-            <a href="#">마을제보</a>
+            <a href="{% url 'posts:report' %}">마을제보</a>
             <a href="#">마을소개</a>
         </div>
         <div class="logo">
-            행복한 마을
+            <a href="{% url 'main' %}">행복한 마을</a>
         </div>
         <div class="nav-right">
-            <a href="#">마이페이지</a>
-            <a href="#">로그인</a>
+            <a href="{% url 'users:mypage' %}">마이페이지</a>
+            <a href="{% url 'users:login' %}">로그인</a>
         </div>
     </div>
 </header>

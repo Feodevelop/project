@@ -1,15 +1,16 @@
-
+{% extends 'base.html' %}
+{% block content %}
     <div class="container">
         <h1>SIGN IN</h1>
         <!-- Links -->
         <ul class="links">
             <li>
-                <a href="#" id="signup">회원가입</a>
+                <a href="{% url 'users:signup' %}" id="signup">회원가입</a>
             </li>
         </ul>
 
         <!-- Form -->
-        <form action="{% url 'users:index' %}" method="POST">
+        <form action="" method="POST">
             <!-- UserID input -->
             <div class="first-input input__block first-input__block">
                 <input type="email" placeholder="아이디" class="input" id="userID" />
@@ -38,3 +39,4 @@
             GitHub로 로그인
         </button>
     </div>
+{% endblock %}

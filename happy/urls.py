@@ -18,10 +18,12 @@ from django.contrib import admin
 from .views import main
 from django.urls import path, include
 
+app_name = "main"
+
 urlpatterns = [
-    path('', main),
+    path('', main, name="main"),
     path('admin/', admin.site.urls),
-    # path('posts/', include('posts.urls')),
-    # path('users/', include('users.urls')),
+    path('posts/', include('posts.urls')),
+    path('users/', include('users.urls')),
     # path('reviews/', include('reviews.urls')),
 ]
