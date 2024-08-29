@@ -10,12 +10,13 @@ h1 {
     font-size: 48px;
     letter-spacing: -3px;
     text-align: center;
-    margin: 50px 0 40px 0; /* 상단 여백을 줄였습니다 */
     transition: .2s linear;
 }
 
 .links {
     list-style-type: none;
+    margin-top: 40px;
+    margin-left: 30px;
 }
 
 .links li {
@@ -104,10 +105,10 @@ input {
     padding: 0 0 0 15px;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
+    outline: 2px solid #858585;;
 }
 
 input:focus, input:active {
-    outline: none;
     border: none;
     color: rgba(#0f132a, 1);
 }
@@ -175,7 +176,7 @@ input.repeat__password {
 .google__btn,
 .github__btn {
     display: block;
-    width: 90%;
+    width: 92.5%;
     max-width: 680px;
     margin: 20px auto;
     height: 50px;
@@ -204,8 +205,8 @@ input.repeat__password {
 }
 
 .github__btn {
-    background: #25282d;
-    color: white;
+    background: #FEE500;
+    color: #000000 85%;
     box-shadow: 0 15px 30px rgba(#25282d, .36);
     transition: .2s linear;
 }

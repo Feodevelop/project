@@ -5,20 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>행복한 마을</title>
-    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" />
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/villagereport.css' %}" />
+    {% if request.path == '/users/mypage/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% elif request.path == '/users/login/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% elif request.path == '/users/signup/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% elif request.path == '/posts/reports/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% else %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    {% endif %}
+    <script>
+        $(function(){
+            // 모바일 오픈 버튼을 눌렀더니
+            // 모바일 gnb가 나타난다
+            $('.mob_open_btn').click(function(){
+                $('.mob_open_btn').fadeOut()
+                $('.mob_gnb').animate({right:0},500)
+            })
+            // 모바일 닫기 버튼을 눌렀더니
+            // 모바일 gnb가 사라진다
+            $('.mob_close_btn').click(function(){
+                $('.mob_open_btn').fadeIn()
+                $('.mob_gnb').animate({right:'-90%'},500)
+            })
+            $('.gnb').mouseenter(function(){
+                $(this).find('.sub_menu').stop().slideDown(500)
+            })
+            $('.gnb').mouseleave(function(){
+                $(this).find('.sub_menu').stop().slideUp(500)
+            })
+            // $('.controls>li').eq(0).click(function(){
+            //     $('.top_img').animate({left:0},500)
+            // })
+            // $('.controls>li').eq(1).click(function(){
+            //     $('.top_img').animate({left:'-100%'},500)
+            // })
+            // $('.controls>li').eq(2).click(function(){
+            //     $('.top_img').animate({left:'-200%'},500)
+            // })
+            $('.controls>li').each(function(index){
+                $(this).click(function(){
+                    $('.top_img').animate({left:-(100*index)+'%'},500)
+                    $('.top_text>li').eq(index).fadeIn().siblings().fadeOut()
+                    $(this).addClass('active').siblings().removeClass('active')
+                })
+            })
+
+
+            // new
+            let newTop = $('#new').offset().top
+            
+            $(window).scroll(function(){
+                let scrollTop = $(this).scrollTop()
+                if(scrollTop>newTop){
+                    $('#new>ul>li').each(function(index){
+                        $(this).delay(index*300).animate({top:0, opacity:1},700)
+                    })
+                    return false;
+                }
+            })
+            
+        })
+    </script>
 </head>
 <body>
-    {% include 'header.html' %}
-    
-    {% block content %}
-    {% endblock %}
+    <header id="header">
+    {% include 'header.html' %} <!-- 고정된 헤더 -->
+    </header>
 
-    {% include 'footer.html' %}
+        {% block content %}
+
+        {% endblock %}
+
+    <footer id="footer">
+    {% include 'footer.html' %} <!-- 고정되지 않은 푸터 -->
+    </footer>
 </body>
 </html>

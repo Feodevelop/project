@@ -1,37 +1,133 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <h1>마을 소개 및 이벤트</h1>
-
-    <div class="section">
-        <h2>인기 장소</h2>
-        <div class="card">
-            <h3>우리 마을 산책로</h3>
-            <p>길 포장이 잘되어 있고, 여성 안심 불빛이 켜져있어 안전합니다.</p>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<section id="topBanner">
+    <ul class="top_img">
+        <li><img src="{% static 'img/top_banner5.jpg' %}" alt=""></li>
+        <li><img src="{% static 'img/top_banner6.jpg' %}" alt=""></li>
+        <li><img src="{% static 'img/top_banner7.jpg' %}" alt=""></li>
+    </ul>
+    <ul class="top_text">
+        <li>
+            <h2>8월29일 특별SALE!!</h2>
+            <p>해피시티에서 특별한 이벤트를 제공합니다. 제휴사와 함께하는 이벤트를 확인하세요!!</p>
+            <a href="#" class="more_btn">Event</a>
+        </li>
+        <li>
+            <h2>오늘의 인기 마을!</h2>
+            <p>인천 남동구 만수동이라는 곳에 대해서 소개합니다. 다양한 먹거리와 대공원에 인접하여 하루를 알차게 보낼 수 있어요!</p>
+            <a href="#" class="more_btn">구경가기</a>
+        </li>
+        <li>
+            <h2>오늘의 HOT Talk!</h2>
+            <p>주방 아이템은 무엇이 좋을지 고민해보셨나요? 해당 주제로 현재 토론이 매우 HOT!!</p>
+            <a href="#" class="more_btn">토론참여</a>
+        </li>
+    </ul>
+    <ul class="controls">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+<section id="polo">
+    <div class="polo_inner">
+        <h2>우리 마을 인기 장소!<br>
+            가장 기억에 남는 인기있는 장소!!</h2>
+        <p></p>
+        <a href="#" class="polo_btn btn">인기 마을 보러가기</a>
+    </div>
+    <section id="man">
+        <ul class="man_list">
+            <li><img src="{% static 'img/main_product_1.jpg' %}" alt="코튼 폴로 티셔츠">
+                <div class="over_box">
+                    <div>
+                        <h3>우리 마을 산책로!</h3>
+                        <p class="price">길 포장이 잘되어 있고,<br> 여성 안심 불빛이 켜져있어 안전합니다.</p>
+                    </div> 
+                </div>
+            </li>
+            <li><img src="{% static 'img/main_product_2.jpg' %}" alt="남성 배색 자켓">
+                <div class="over_box">
+                    <div>
+                        <h3>우리 마을 커피맛집!</h3>
+                        <p class="price">커피가 1급수로 내렸는지<br> 하나도 안쓰고 달고 맛있어요!</p>
+                    </div>
+                </div>
+            </li>
+            <li><img src="{% static 'img/main_product_3.jpg' %}" alt="니트 가디건">
+                <div class="over_box">
+                    <div>
+                        <h3>우리 동네 맛집!</h3>
+                        <p class="price">이집 갈비가 무슨<br>이것이 갈비인가 통닭인가...</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+</section>
+<section id="newProduct">
+    <div class="new_wrap">
+        <div class="new_left">
+            <h2>우리 동네 REVIEW!</h2>
+            <p>HH C-T의 생생한 리뷰를 확인하세요!</p>
         </div>
-        <div class="card">
-            <h3>우리 마을 커피 맛집!</h3>
-            <p>커피가 1급수로 내렸는지 하나도 안쓰고 달고 맛있어요!</p>
+        <div class="new_right">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/poster1.jpg' %}" alt="">
+                        <h3>Poster</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/poster2.jpg' %}" alt="">
+                        <h3>Poster</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/poster3.jpg' %}" alt="">
+                        <h3>Poster</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/poster4.jpg' %}" alt="">
+                        <h3>Poster</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/poster5.jpg' %}" alt="">
+                        <h3>Poster</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static 'img/poster6.jpg' %}" alt="">
+                        <h3>Poster</h3>
+                    </a>
+                </li>                    
+            </ul>
         </div>
     </div>
-
-    <div class="section">
-        <h2>마을 이용후기</h2>
-        <div class="card">
-            <p><strong>정민수</strong>: 너무 좋았어요! 다음에도 방문하고 싶어요</p>
-        </div>
-        <div class="card">
-            <p><strong>예은희</strong>: 매번 새로운 발견이 있는 곳입니다</p>
-        </div>
-        <div class="card">
-            <p><strong>기택준</strong>: 가족과 함께하는 여행에 딱인 곳이에요</p>
-        </div>
+</section>
+<section id="golf">
+    <div class="golf_text">
+        <h2>우리 마을 제보</h2>
+        <p>마을 제보 하고 포인트받자!!</p>
+        <a href="#" class="golf_btn btn">제보하러 가기</a>
     </div>
-
-    <div class="section">
-        <h2>마을제보</h2>
-        <p>새로운 마을을 제보해주세요. 검토 후 마을이 소개됩니다!</p>
-        <a href="{% url 'posts:report' %}">제보하러 가기</a>
+    <div class="golf_img"></div>
+</section>
+<section id="midBanner">
+    <div class="mid_inner">
+        <h2>지금 우리 동네는?</h2>
+        <p>동네 주민분들과 무슨일이 일어나는지<br>
+            직접 물어보고 답변을 받아보세요! 다양한 볼거리 등 소개를 받을 수 있습니다!</p>
+        <a href="#" class="mid_btn btn">동네 질문하러 가기</a>
     </div>
-</div>
+</section>
 {% endblock %}

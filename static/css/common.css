@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
+*{margin: 0; padding: 0;}
+ul,ol{list-style: none;}
+img{display: block; border: none;}
+a{text-decoration: none;}
+address{font-style: normal;}
+
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Nanum Myeongjo', serif;
+font-family: 'Noto Sans KR', sans-serif; */
+section, header, nav, footer, div, p, h1,h2,h3,h4, a, li, input{counter-reset: #333333; font-family: 'Noto Sans KR', sans-serif;}
+.top_wrap{position: relative;}

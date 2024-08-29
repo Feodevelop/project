@@ -1,16 +1,110 @@
-<header>
-    <div class="header-content">
-        <div class="nav-left">
-            <a href="#">이벤트</a>
-            <a href="{% url 'posts:report' %}">마을제보</a>
-            <a href="#">마을소개</a>
-        </div>
-        <div class="logo">
-            <a href="{% url 'main' %}">행복한 마을</a>
-        </div>
-        <div class="nav-right">
-            <a href="{% url 'users:mypage' %}">마이페이지</a>
-            <a href="{% url 'users:login' %}">로그인</a>
-        </div>
-    </div>
+{% load static %}
+<header id="header">
+    <h1 class="top_logo">
+        <a href="{% url 'main' %}">
+            {% if request.path == '/users/mypage/' %}
+                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+            {% elif request.path == '/users/login/' %}
+                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+            {% elif request.path == '/users/signup/' %}
+                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+            {% elif request.path == '/posts/reports/' %}
+                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+            {% else %}
+                <img src="{% static 'img/converse_logo_white.png' %}" alt="Main Logo">
+            {% endif %}
+        </a>
+    </h1>    
+    <nav class="gnb">
+        <ul>
+            <li><a href="#">이벤트</a>
+            </li>
+            <li><a href="#">마을정보</a>
+            </li>
+            <li><a href="{% url 'posts:report' %}">마을제보</a>
+            </li>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">토론의장</a></li>
+        </ul>
+    </nav>
+    <nav class="util">
+        <ul>
+            <li><a href="#">
+                {% if request.path == '/users/mypage/' %}
+                <img src="{% static 'img/icon_search.png' %}" alt="검색">
+                {% elif request.path == '/users/login/' %}
+                <img src="{% static 'img/icon_search.png' %}" alt="검색">
+                {% elif request.path == '/users/signup/' %}
+                <img src="{% static 'img/icon_search.png' %}" alt="검색">
+                {% elif request.path == '/posts/reports/' %}
+                <img src="{% static 'img/icon_search.png' %}" alt="검색">
+                {% else %}
+                <img src="{% static 'img/icon_search_wh.png' %}" alt="검색">
+                {% endif %}
+                </a>
+            </li>
+            <li><a href="{% url 'users:mypage' %}">
+                {% if request.path == '/users/mypage/' %}
+                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                {% elif request.path == '/users/login/' %}
+                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                {% elif request.path == '/users/signup/' %}
+                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                {% elif request.path == '/posts/reports/' %}
+                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                {% else %}
+                <img src="{% static 'img/icon_cart_wh.png' %}" alt="장바구니">
+                {% endif %}
+                </a>
+            </li>
+            <li><a href="{% url 'users:login' %}">
+                {% if request.path == '/users/mypage/' %}
+                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                {% elif request.path == '/users/login/' %}
+                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                {% elif request.path == '/users/signup/' %}
+                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                {% elif request.path == '/posts/reports/' %}
+                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                {% else %}
+                <img src="{% static  'img/icon_login_wh.png' %}" alt="로그인">
+                {% endif %}
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="mob_open_btn"><img src="{% static 'img/gnb_btn.png' %}" alt="모바일 열기버튼"></div>
+    <nav class="mob_gnb">
+        <div class="mob_close_btn"><img src="{% static 'img/bg8.png' %}" alt="모바일 닫기버튼"></div>
+            <ul>               
+                <li><a href="#">SHOES</a>
+                    <ul>
+                    <li><a href="#">전체보기</a></li>
+                    <li><a href="#">베스트셀러</a></li>
+                    <li><a href="#">여성</a></li>
+                    <li><a href="#">남성</a></li>
+                    <li><a href="#">커스텀</a></li>
+                    </ul>
+                </li>                  
+                 <li><a href="#">CLOTHES</a>
+                    <ul>
+                    <li><a href="#">전체보기</a></li>
+                    <li><a href="#">아우터</a></li>
+                    <li><a href="#">상의</a></li>
+                    <li><a href="#">하의</a></li>
+                    <li><a href="#">용품</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">KIDS</a>
+                    <ul>
+                        <li><a href="#">전체보기</a></li>
+                        <li><a href="#">유아</a></li>
+                        <li><a href="#">어린이</a></li>
+                        <li><a href="#">커스텀</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">LOOKBOOK</a></li>
+                <li><a href="#">BRAND</a></li>
+                </ul>
+    </nav>
 </header>

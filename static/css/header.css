@@ -1,48 +1,18 @@
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-header {
-    background-color: #ffffff;
-    padding: 15px 30px;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-.header-content {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
-}
-.nav-left a, .nav-right a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 16px;
-}
-.nav-left a:hover, .nav-right a:hover {
-    color: #007bff;
-}
+/* common */
+    .con_title{font-size: 60px; text-align: center; font-weight: bold; line-height: 1em;}
+    .more_btn{width:200px; background-color: #FFF ; display: block; line-height: 50px; text-align: center;margin-top: 30px;}
+    
+    #header{position: relative; width: 1200px; height: 100px; margin: 0 auto; z-index: 9999;}
+    #header .top_logo{position: absolute; left: 0; top: 17px ;}
+    #header .top_logo img{height: 66px;}
+    #header .gnb{position: absolute; left: 50%; top: 0; transform: translateX(-50%);}
+    #header .gnb>ul{display: flex;}
+    #header .gnb>ul>li{width: 130px;}
+    #header .gnb>ul>li>a{display: block; text-align: center; line-height: 100px; color: #FFF; font-size: 1.4em; font-weight: bold;}
+    #header .gnb>ul>li>ul{display: none; background-color: rgba(0,0,0,0.5);}
+    #header .gnb>ul>li>ul a{display: block; text-align: center; font-size: 1.1em; color: #FFF; line-height: 2.5em;}
+    #header .util{position: absolute; right:0; top: 30px; }
+    #header .util ul{display: flex;}
+    #header .util ul li a{display: block; padding: 0 15px;}
+    .mob_open_btn{display: none;}
+    .mob_gnb{display: none;}

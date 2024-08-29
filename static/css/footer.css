@@ -1,23 +1,11 @@
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 30px;
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    position: relative;
-}
-.footer-content {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
-footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 16px;
-}
-footer a:hover {
-    text-decoration: underline;
-}
+#footer{position: relative; width: 1200px; margin: 0 auto; border-top: 1px solid #000; padding: 50px 0;}
+#footer .footer_top{display: flex; justify-content: space-between;}
+#footer .fnb{position: relative;}
+#footer .fnb>ul{display: flex;}
+#footer .fnb>ul>li>a{display: block;padding-right: 50px; font-weight: bold; line-height: 2em;}
+#footer .fnb>ul>li>ul a{line-height: 2em; font-size: 0.9em; color: #333;}
+#footer .kakao{text-align: center;}
+#footer .kakao h2{font-size:1.2em; font-weight: bold;}
+#footer .kakao p{margin: 20px 0;}
+#footer .kakao .kakao_btn{font-size: 1em;}
+#footer address{font-size: 0.8em; text-align: center; color: #666; margin-top: 50px; line-height: 1.6em; font-style: normal;}
