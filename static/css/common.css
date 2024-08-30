@@ -3,7 +3,7 @@
 *{margin: 0; padding: 0;}
 ul,ol{list-style: none;}
 img{display: block; border: none;}
-a{text-decoration: none;}
+a{text-decoration: none; color: black;}
 address{font-style: normal;}
 
 /* font-family: 'Montserrat', sans-serif;

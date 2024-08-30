@@ -13,6 +13,39 @@
 #header .gnb>ul>li>ul a{display: block; text-align: center; font-size: 1.1em; color: #000; line-height: 2.5em;}
 #header .util{position: absolute; right:0; top: 30px; }
 #header .util ul{display: flex;}
-#header .util ul li a{display: block; padding: 0 15px;}
+#header .util ul li a{display: block; padding: 0 2px;}
 .mob_open_btn{display: none;}
 .mob_gnb{display: none;}
+/* 검색창 */
+#header_search {
+width: 150px;
+height: 40px;
+margin-top: 2px;
+margin-right: 12px;
+}
+
+#header_search .search {
+position: relative;
+width: 100%;
+}
+
+#header_search input {
+width: 100%;
+height: 100%;
+border: 1px solid #bbb;
+border-radius: 20px;
+/* 모서리 둥글기 정도 */
+padding: 10px 0px;
+font-size: 12px;
+padding-left: 10px;
+}
+input:focus {outline: none;}
+
+#header_search img {
+position: absolute;
+width: 17px;
+top: 10px;
+right: 5px;
+margin: 0;
+}
+/* 검색창 끝 */

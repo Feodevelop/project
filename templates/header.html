@@ -3,15 +3,15 @@
     <h1 class="top_logo">
         <a href="{% url 'main' %}">
             {% if request.path == '/users/mypage/' %}
-                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
             {% elif request.path == '/users/login/' %}
-                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
             {% elif request.path == '/users/signup/' %}
-                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
             {% elif request.path == '/posts/reports/' %}
-                <img src="{% static 'img/converse_logo.png' %}" alt="Trans Logo">
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
             {% else %}
-                <img src="{% static 'img/converse_logo_white.png' %}" alt="Main Logo">
+                <img src="{% static 'img/logo_wh.png' %}" alt="Main Logo">
             {% endif %}
         </a>
     </h1>    
@@ -29,31 +29,24 @@
     </nav>
     <nav class="util">
         <ul>
-            <li><a href="#">
-                {% if request.path == '/users/mypage/' %}
-                <img src="{% static 'img/icon_search.png' %}" alt="검색">
-                {% elif request.path == '/users/login/' %}
-                <img src="{% static 'img/icon_search.png' %}" alt="검색">
-                {% elif request.path == '/users/signup/' %}
-                <img src="{% static 'img/icon_search.png' %}" alt="검색">
-                {% elif request.path == '/posts/reports/' %}
-                <img src="{% static 'img/icon_search.png' %}" alt="검색">
-                {% else %}
-                <img src="{% static 'img/icon_search_wh.png' %}" alt="검색">
-                {% endif %}
-                </a>
+            <li>
+                <div id="header_search">
+                    <div class="search">
+                        <input type="text" placeholder="">
+                        <img src="{% static 'img/search.png' %}" alt="마이페이지">
+                        </div>
             </li>
             <li><a href="{% url 'users:mypage' %}">
                 {% if request.path == '/users/mypage/' %}
-                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
                 {% elif request.path == '/users/login/' %}
-                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
                 {% elif request.path == '/users/signup/' %}
-                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
                 {% elif request.path == '/posts/reports/' %}
-                <img src="{% static 'img/icon_cart.png' %}" alt="장바구니">
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
                 {% else %}
-                <img src="{% static 'img/icon_cart_wh.png' %}" alt="장바구니">
+                <img src="{% static 'img/icon_mypage_wh.png' %}" alt="마이페이지">
                 {% endif %}
                 </a>
             </li>
