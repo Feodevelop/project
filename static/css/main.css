@@ -62,6 +62,6 @@
 /* midBanner */
 #midBanner{position: relative; width: 1200px; height: 560px; margin: 50px auto; background: url(../img/edition_main.jpg) center}
 #midBanner .mid_inner{position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center;}
-#midBanner h2{font-size:2.1em;}
-#midBanner p{font-size: 1.3em; margin: 50px 0;}
-#midBanner .mid_btn{margin: 0 auto;}
+#midBanner h2{font-size:2.1em; color: #FFF;}
+#midBanner p{font-size: 1.3em; margin: 50px 0; color: #FFF;}
+#midBanner .mid_btn{margin: 0 auto; color: #FFF; border-color: #FFF;}
