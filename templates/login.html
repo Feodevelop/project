@@ -12,10 +12,11 @@
         </ul>
 
         <!-- Form -->
-        <form action="" method="POST">
+        <form action="{% url 'users:login' %}" method="POST">
+            {% csrf_token %}
             <!-- UserID input -->
             <div class="first-input input__block first-input__block">
-                <input type="email" placeholder="아이디" class="input" id="userID" />
+                <input type="username" placeholder="아이디" class="input" id="username" />
             </div>
             <!-- password input -->
             <div class="input__block">

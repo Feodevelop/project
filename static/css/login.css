@@ -109,8 +109,7 @@ input {
 }
 
 input:focus, input:active {
-    border: none;
-    color: rgba(#0f132a, 1);
+    outline: 2px solid #858585;
 }
 
 input.repeat__password {
