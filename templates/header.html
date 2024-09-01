@@ -10,6 +10,12 @@
                 <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
             {% elif request.path == '/posts/reports/' %}
                 <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
+            {% elif request.path == '/posts/promotion/' %}
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
+            {% elif request.path == '/posts/notice/' %}
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
+            {% elif request.path == '/posts/talk/' %}
+                <img src="{% static 'img/logo_black.png' %}" alt="Trans Logo">
             {% else %}
                 <img src="{% static 'img/logo_wh.png' %}" alt="Main Logo">
             {% endif %}
@@ -19,12 +25,12 @@
         <ul>
             <li><a href="#">이벤트</a>
             </li>
-            <li><a href="#">마을정보</a>
+            <li><a href="{% url 'posts:promotion' %}">마을게시판</a>
             </li>
-            <li><a href="{% url 'posts:report' %}">마을제보</a>
+            <li><a href="{% url 'posts:reports' %}">마을제보</a>
             </li>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="#">토론의장</a></li>
+            <li><a href="{% url 'posts:notice' %}">공지사항</a></li>
+            <li><a href="{% url 'posts:talk' %}">토론의장</a></li>
         </ul>
     </nav>
     <nav class="util">
@@ -45,25 +51,64 @@
                 <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
                 {% elif request.path == '/posts/reports/' %}
                 <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
+                {% elif request.path == '/posts/promotion/' %}
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
+                {% elif request.path == '/posts/notice/' %}
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
+                {% elif request.path == '/posts/talk/' %}
+                <img src="{% static 'img/icon_mypage.png' %}" alt="마이페이지">
                 {% else %}
                 <img src="{% static 'img/icon_mypage_wh.png' %}" alt="마이페이지">
                 {% endif %}
                 </a>
-            </li>
-            <li><a href="{% url 'users:login' %}">
-                {% if request.path == '/users/mypage/' %}
-                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
-                {% elif request.path == '/users/login/' %}
-                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
-                {% elif request.path == '/users/signup/' %}
-                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
-                {% elif request.path == '/posts/reports/' %}
-                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
-                {% else %}
-                <img src="{% static  'img/icon_login_wh.png' %}" alt="로그인">
-                {% endif %}
-                </a>
-            </li>
+                <li>
+                    {% if user.is_authenticated %}
+                        <!-- 로그아웃 버튼 -->
+                        <form id="logout-form" action="{% url 'users:logout' %}" method="post" style="display: none;">
+                            {% csrf_token %}
+                        </form>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {% if request.path == '/users/mypage/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% elif request.path == '/users/login/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% elif request.path == '/users/signup/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% elif request.path == '/posts/reports/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% elif request.path == '/posts/promotion/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% elif request.path == '/posts/notice/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% elif request.path == '/posts/talk/' %}
+                                <img src="{% static 'img/icon_logout.png' %}" alt="로그아웃">
+                            {% else %}
+                                <img src="{% static 'img/icon_logout_wh.png' %}" alt="로그아웃">
+                            {% endif %}
+                        </a>
+                    {% else %}
+                        <!-- 로그인 버튼 -->
+                        <a href="{% url 'users:login' %}">
+                            {% if request.path == '/users/mypage/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% elif request.path == '/users/login/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% elif request.path == '/users/signup/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% elif request.path == '/posts/reports/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% elif request.path == '/posts/promotion/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% elif request.path == '/posts/notice/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% elif request.path == '/posts/talk/' %}
+                                <img src="{% static 'img/icon_login.png' %}" alt="로그인">
+                            {% else %}
+                                <img src="{% static 'img/icon_login_wh.png' %}" alt="로그인">
+                            {% endif %}
+                        </a>
+                    {% endif %}
+                </li>
         </ul>
     </nav>
     <div class="mob_open_btn"><img src="{% static 'img/gnb_btn.png' %}" alt="모바일 열기버튼"></div>

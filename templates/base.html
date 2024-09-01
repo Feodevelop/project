@@ -16,9 +16,16 @@
     <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
     {% elif request.path == '/posts/reports/' %}
     <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% elif request.path == '/posts/promotion/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% elif request.path == '/posts/notice/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
+    {% elif request.path == '/posts/talk/' %}
+    <link rel="stylesheet" href="{% static 'css/header_trans.css' %}">
     {% else %}
     <link rel="stylesheet" href="{% static 'css/header.css' %}" />
     {% endif %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <script>
         $(function(){
             // 모바일 오픈 버튼을 눌렀더니

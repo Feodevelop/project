@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/promotion.css' %}" />
+<section class="notice">
+    <div class="page-title">
+        <div class="container">
+            <h3>마을 게시판</h3>
+        </div>
+    </div>
+
+    <!-- board search area -->
+    <div id="board-search">
+        <div class="container">
+            <div class="search-window">
+                <form action="">
+                    <div class="search-wrap">
+                        <label for="search" class="blind">마을 내용 검색</label>
+                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+                        <button type="submit" class="btn btn-dark">검색</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- category filter area -->
+    <div id="board-category">
+        <div class="container">
+            <div class="category-window">
+                <ul>
+                    <li><a href="{% url 'posts:promotion' %}">전체</a></li>
+                    {% for category in categories %}
+                        <li><a href="{% url 'posts:promotion_by_category' category.slug %}">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- board list area -->
+    <div id="board-list">
+        <div class="container">
+            <table class="board-table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="th-num">번호</th>
+                        <th scope="col" class="th-title">제목</th>
+                        <th scope="col" class="th-user">작성자</th>
+                        <th scope="col" class="th-date">등록일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <th>
+                            <a href="{% url 'posts:promotion_detail' post.id %}">{{ post.title }}</a>
+                            {% if post.content %}
+                            <p>{{ post.content|slice:":100" }}{% if post.content|length > 100 %}...{% endif %}</p>
+                            {% endif %}
+                        </th>
+                        <td>{{ post.created_at|date:"Y.m.d" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">게시글이 없습니다.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

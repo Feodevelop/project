@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="post-detail">
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 600px;">
+        {% endif %}
+        <p>{{ post.content }}</p>
+        <small>Created at: {{ post.created_at|date:"Y.m.d" }}</small>
+        <a href="{% url 'posts:promotion' %}">Back to list</a>
+    </div>
+</section>
+{% endblock %}

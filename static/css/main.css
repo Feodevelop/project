@@ -7,7 +7,7 @@
 .btn:hover{background-color: #222; color: #FFF;}
 
 /* topBanner */
-#topBanner{position: relative; overflow: hidden; margin-top: -150px;}
+#topBanner{position: relative; overflow: hidden; margin-top: -140px;}
 #topBanner .top_img{position: relative; width: 300%; display: flex;}
 #topBanner .top_img li{width: 33.33%;}
 #topBanner .top_img li img{width: 100%;}

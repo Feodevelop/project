@@ -2,35 +2,35 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-    <form action="#">
+    <form method="POST">
+        {% csrf_token %}
         <table>
         <tr>
-            <td><h2>회원가입</h2></td>
-        </tr>
-        <tr><td>아이디</td></tr>
-        <tr><td><input type="text" class="text"></td></tr>
-        <tr><td>비밀번호</td></tr>
-        <tr><td><input type="password" class="text"></td></tr>
-        <tr><td>비밀번호 확인</td></tr>
-        <tr><td><input type="password" class="text"></td></tr>
-        <tr><td>이름</td></tr>
-        <tr><td><input type="text" class="text"></td></tr>
-        <tr><td>전화번호</td></tr>
-        <tr><td><input type="text" class="text"></td></tr>
-        <tr><td>생년월일</td></tr>
-        <tr><td><input type="date" class="text"></td></tr>
-        <tr><td>이메일</td></tr>
-        <tr>
-            <td><input type="text" class="email"> @ 
-                <select>
-                    <option>naver.com</option>
-                    <option>gmail.com</option>
-                    <option>daum.net</option>
-                    <option>nate.com</option>
-                </select>
+            <td>
+                <h2>회원가입</h2>
             </td>
         </tr>
-        <tr><td><input type="submit" value="가입하기" class="btn" onclick="alert('가입 성공!')"></td></tr>
+        {% for field in form %}
+        <tr>
+            <td>{{ field.label_tag }}</td>
+            <td>
+                {{ field }}
+                {% if field.errors %}
+                <p class="error">{{ field.errors }}</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <input type="submit" value="가입하기" class="btn">
+            </td>
+        </tr>
         </table>
     </form>
+    {% if form.non_field_errors %}
+    <p class="error">
+        {{ form.non_field_errors }}
+    </p>
+    {% endif %}
 {% endblock %}
