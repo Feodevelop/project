@@ -51,16 +51,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for post in posts %}
+                    {% for post_info in posts %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <th>
-                            <a href="{% url 'posts:promotion_detail' post.id %}">{{ post.title }}</a>
-                            {% if post.content %}
-                            <p>{{ post.content|slice:":100" }}{% if post.content|length > 100 %}...{% endif %}</p>
+                            <a href="#">{{ post_info.post.postname }}</a>  <!-- 게시글 제목 -->
+                            {% if post_info.post.contents %}
+                            <p>{{ post_info.post.contents|slice:":100" }}{% if post_info.post.contents|length > 100 %}...{% endif %}</p>
                             {% endif %}
                         </th>
-                        <td>{{ post.created_at|date:"Y.m.d" }}</td>
+                        <td>{{ post_info.author_name }}</td> <!-- 작성자 이름 -->
+                        <td>{{ post_info.post.created_at|date:"Y.m.d" }}</td> <!-- 작성일 -->
                     </tr>
                     {% empty %}
                     <tr>
@@ -68,6 +69,7 @@
                     </tr>
                     {% endfor %}
                 </tbody>
+                
             </table>
         </div>
     </div>

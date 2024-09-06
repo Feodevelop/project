@@ -2,38 +2,69 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/villagereport.css' %}" />
-    <div class="container">
-        <h1>게시글 작성</h1>
-        <form action="#" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="category">카테고리</label>
-                <select id="category" name="category" required>
-                    <option value="마을제보">마을제보</option>
-                </select>
-                <select id="category" name="category" required>
-                    <option value="우리마을">우리 마을 어때요?</option>
-                    <option value="맛집제보">여기에 이런 맛집이?!</option>
-                    <option value="산책로제보">산책로 제보</option>
-                    <option value="데이트명소">설레는 데이트 명소!</option>
-                </select>
-            </div>
 
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" id="title" name="title" placeholder="게시글 제목" required />
-            </div>
+<div class="container">
+    <h1>마을 제보</h1>
+    <!-- Django form starts here -->
+    <form action="{% url 'posts:reports' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Render category field -->
+        <div class="form-group">
+            <label for="category">카테고리</label>
+            <select id="category" name="category" required>
+                <option value="">카테고리를 선택하세요</option>
+                {% for category in form.fields.category.queryset %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-            <div class="form-group">
-                <label for="content">본문</label>
-                <textarea id="content" name="content" placeholder="게시글 본문" required></textarea>
-            </div>
+        <div class="form-group">
+            <label for="subcategory">세부 카테고리</label>
+            <select id="subcategory" name="subcategory" required>
+                <option value="">상위 카테고리를 먼저 선택하세요</option>
+            </select>
+        </div>
 
-            <div class="form-group">
-                <label for="file">파일 첨부</label>
-                <input type="file" id="file" name="file" />
-            </div>
+        <!-- Render title field -->
+        <div class="form-group">
+            <label for="postname">제목</label>
+            {{ form.postname }}
+        </div>
 
-            <button type="submit" class="submit-btn">게시글 작성</button>
-        </form>
-    </div>
+        <!-- Render content field -->
+        <div class="form-group">
+            <label for="contents">본문</label>
+            {{ form.contents }}
+        </div>
+
+        <!-- Render file upload field -->
+        <div class="form-group">
+            <label for="image">파일 첨부</label>
+            {{ form.image }}
+        </div>
+
+        <button type="submit" class="submit-btn">게시글 작성</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $('#category').change(function() {
+        var category_id = $(this).val();
+        if (category_id) {
+            $.ajax({
+                url: '{% url "posts:get_subcategories" %}',  // 하위 카테고리를 가져올 URL
+                data: {
+                    'category_id': category_id
+                },
+                success: function(data) {
+                    $('#subcategory').html(data);
+                }
+            });
+        } else {
+            $('#subcategory').html('<option value="">상위 카테고리를 먼저 선택하세요</option>');
+        }
+    });
+</script>
 {% endblock %}

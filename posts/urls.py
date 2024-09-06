@@ -12,6 +12,7 @@ urlpatterns = [
     path('reports/', views.reports, name='reports'),
     path('category/<slug:category_slug>/', views.promotion, name='promotion_by_category'),
     path('post/<int:post_id>/', views.promotion_detail, name='promotion_detail'),
+    path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
