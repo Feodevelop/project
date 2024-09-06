@@ -55,7 +55,7 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <th>
-                            <a href="#">{{ post_info.post.postname }}</a>  <!-- 게시글 제목 -->
+                            <a href="{% url 'posts:promotion_detail' post_info.post.id %}">{{ post_info.post.postname }}</a>
                             {% if post_info.post.contents %}
                             <p>{{ post_info.post.contents|slice:":100" }}{% if post_info.post.contents|length > 100 %}...{% endif %}</p>
                             {% endif %}
@@ -69,7 +69,6 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-                
             </table>
         </div>
     </div>

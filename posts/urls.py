@@ -1,7 +1,5 @@
 from django.urls import path, include
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
 
 app_name = "posts"
 
@@ -14,5 +12,3 @@ urlpatterns = [
     path('post/<int:post_id>/', views.promotion_detail, name='promotion_detail'),
     path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

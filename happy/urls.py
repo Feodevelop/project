@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from .views import main
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 app_name = "main"
 
@@ -26,4 +28,4 @@ urlpatterns = [
     path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
     # path('reviews/', include('reviews.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
